@@ -1,0 +1,3 @@
+Obj_Lnk_SignIn = //[@class='login']
+EmailTextBox = philadelphia-field-email
+SignUpButton = philadelphia-field-submit

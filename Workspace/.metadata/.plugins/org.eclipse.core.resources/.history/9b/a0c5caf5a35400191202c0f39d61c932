@@ -1,0 +1,25 @@
+package PlatformLayer;
+
+
+import java.io.IOException;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.RollingFileAppender;
+
+public class Log4jExample{
+
+   /* Get actual class name to be printed on */
+   static Logger log = Logger.getLogger(Log4jExample.class.getName());
+   RollingFileAppender appender = new RollingFileAppender(layout, filePath);
+	appender.setMaxFileSize("100MB");
+	appender.activateOptions();
+	Logger.getRootLogger().setLevel(Level.INFO);
+	Logger.getRootLogger().addAppender(appender);
+   
+   public static void main(String[] args)throws IOException,SQLException{
+      log.debug("Hello this is a debug message");
+      log.info("Hello this is an info message");
+   }
+}

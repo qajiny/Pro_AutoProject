@@ -1,0 +1,11 @@
+package PlatformLayer;
+
+public class webKeywords {
+	public static void webElementClick(String webElement)
+	{
+		driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+	}
+	
+	
+
+}

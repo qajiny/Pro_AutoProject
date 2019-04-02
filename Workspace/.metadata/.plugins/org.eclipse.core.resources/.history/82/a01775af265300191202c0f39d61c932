@@ -1,0 +1,4 @@
+Obj_Lnk_SignIn = .//a[@class='login']
+Obj_Txt_Email = .//input[@id='email_create']
+Obj_Btn_CreateAccount = .//button[@id='SubmitCreate']
+Obj_Rdo_Mrs = .//input[@id='id_gender2']

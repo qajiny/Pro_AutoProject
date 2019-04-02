@@ -1,0 +1,21 @@
+package AutoPracticePackage;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
+
+public class BaseClass
+{
+	public static Properties objRepo;
+	public static Map<String, String> testData;
+	
+	// Load OR
+	public void loadOR() throws IOException {
+		objRepo = new Properties();
+		FileInputStream fis = new FileInputStream(
+		"C:\\Selenium\\Workspace\\Auto_Project\\ObjectRepository.properties");
+		objRepo.load(fis);
+		System.out.println(objRepo.getProperty("Obj_Lnk_SignIn"));
+	}	
+}

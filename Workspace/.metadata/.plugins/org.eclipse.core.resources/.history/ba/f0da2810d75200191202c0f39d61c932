@@ -1,0 +1,28 @@
+package AutoPracticePackage;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class BaseClass
+{
+	public static Properties objRepo;
+	public void loadConfigPropertiesFile() throws IOException {
+		objRepo = new Properties();
+		FileInputStream fis = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\main\\java\\com\\tieto\\config\\config.properties");
+		objRepo.load(fis);
+
+	}
+	/*
+	FileInputStream fis = new FileInputStream(
+			System.getProperty("user.dir") + "\\src\\main\\java\\com\\tieto\\config\\config.properties");
+	prop.load(fis);*/
+	
+}
+	
+/*	ObjRepo = new Properties(); 
+	FileInputStream objfile = new FileInputStream(System.getProperty("user.dir")+"\\application.properties");
+	
+
+}*/

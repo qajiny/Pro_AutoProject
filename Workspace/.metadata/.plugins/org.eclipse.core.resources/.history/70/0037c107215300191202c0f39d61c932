@@ -1,0 +1,20 @@
+package PlatformLayer;
+
+import java.util.Hashtable;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+import Utilities.Constants;
+
+public class artifactsLoader 
+{
+	
+	
+}
+		
+
+	
+
+

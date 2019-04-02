@@ -1,0 +1,149 @@
+package AutoPracticePackage;
+
+//import AutoPracticePackage.BaseClass;
+import PlatformLayer.webKeywords;
+
+import org.testng.annotations.Test;
+
+import com.codoid.products.exception.FilloException;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+//import PlatformLayer.selActionKeywords;
+
+import Utilities.Constants;
+import AutoPracticePackage.BaseClass;
+
+
+public class NewTestFile {
+	
+  public static Map<String,String>testDataMap;  
+  
+  @BeforeSuite
+  public void beforeSuite() throws IOException {
+	  BaseClass bs = new BaseClass();
+	  bs.loadOR();
+  }
+  
+    
+  @BeforeTest
+  public void beforeTest() 
+  {	
+	  // Launches the Application
+	  try {
+		BaseClass.LaunchApp();
+	  } catch (IOException e) 
+	  {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+      
+  }
+    
+  @SuppressWarnings("unchecked")
+@Test
+  public void createAccount()
+  {	
+	  // Load test data
+	  try {
+		  testDataMap = BaseClass.testDataLoader(Constants.testDataFileName,"createAccount");
+		
+	} catch (FilloException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
+	  
+	  System.out.println("IN createAccount"); 
+	  
+	  webKeywords.webElementClick("Obj_Lnk_SignIn");
+	  //driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Lnk_SignIn"))).click();
+	  /*
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_Email"))).sendKeys(testDataMap.get("emailId"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Btn_CreateAccount"))).click();
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Rdo_Mrs"))).click();
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_FirstName"))).sendKeys(testDataMap.get("firstName"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_LastName"))).sendKeys(testDataMap.get("lastName"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_Password"))).sendKeys(testDataMap.get("passWord"));
+	  
+	  // Select DOB
+	  Select select = new Select(driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Sel_Day"))));	 
+	  select.selectByIndex(1);
+	  //(testDataMap.get("DOB_Day"));
+	  
+	  select = new Select(driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Sel_Month"))));	 
+	  select.selectByIndex(1);
+	  //selectByValue(testDataMap.get("DOB_Month"));
+	  
+	  select = new Select(driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Sel_Year"))));	 
+	  select.selectByIndex(1);
+	  //.selectByValue(testDataMap.get("DOB_Year"));
+	  System.out.println("com1 ->" + testDataMap.get("lastName"));	  
+	  
+	  // Enter data in "Your Address" fields
+	  //driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_FirstNameAddress"))).sendKeys(testDataMap.get("firstName"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_LastNameAdrdess"))).sendKeys(testDataMap.get("lastName"));
+	  System.out.println("com2 ->" + testDataMap.get("company"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_CompanyAddress"))).sendKeys(testDataMap.get("company"));
+	  System.out.println("com3 ->" + testDataMap.get("company"));
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_Address"))).sendKeys(testDataMap.get("address"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_CityAddress"))).sendKeys(testDataMap.get("city"));
+	  
+	  select = new Select(driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Sel_StateAddress"))));	 
+	  select.selectByVisibleText(testDataMap.get("state"));
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_ZipAddress"))).sendKeys(testDataMap.get("postalCode"));
+	  
+	  select = new Select(driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Sel_CountryAddress"))));	 
+	  select.selectByVisibleText(testDataMap.get("country"));
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_MobilePhone"))).sendKeys(testDataMap.get("mobilePhone"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_AlternateAddress"))).sendKeys(testDataMap.get("aliasAddress"));
+	  	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Btn_Register"))).click();
+	  String custName = driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_lnk_CustName"))).getText();
+	  */
+	  
+	  System.out.println("OUT createAccount"); 
+  }
+  
+  
+ 
+  
+  
+  
+
+  
+
+  @AfterTest
+  public void afterTest() {
+	//  driver.close();
+  }
+
+  
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}

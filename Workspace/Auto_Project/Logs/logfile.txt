@@ -1,0 +1,37 @@
+2019-04-02 17:59:11 INFO  Log4jTest:63 - Account created : UserAccount51@gmail.com
+2019-04-02 17:59:30 INFO  Log4jTest:63 - Account created : UserAccount443@gmail.com
+2019-04-02 18:10:21 INFO  ApplicationFun:110 - Create Account : UserAccount937@gmail.com
+2019-04-02 18:10:44 INFO  ApplicationFun:110 - Create Account : UserAccount53@gmail.com
+2019-04-02 18:10:55 INFO  ApplicationFun:136 - Added product to cart : Product1
+2019-04-02 18:11:05 INFO  ApplicationFun:136 - Added product to cart : Product2
+2019-04-02 18:11:14 INFO  ApplicationFun:161 - Price of product printed summer dress is 28.98
+2019-04-02 18:11:14 INFO  ApplicationFun:164 - Price of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:11:20 INFO  ApplicationFun:178 - Total of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:24:24 INFO  ApplicationFun:109 - Create Account : UserAccount354@gmail.com
+2019-04-02 18:24:44 INFO  ApplicationFun:109 - Create Account : UserAccount402@gmail.com
+2019-04-02 18:24:50 INFO  ApplicationFun:135 - Added product to cart : Product1
+2019-04-02 18:24:55 INFO  ApplicationFun:135 - Added product to cart : Product2
+2019-04-02 18:25:00 INFO  ApplicationFun:160 - Price of product printed summer dress is 28.98
+2019-04-02 18:25:00 INFO  ApplicationFun:163 - Price of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:25:06 INFO  ApplicationFun:177 - Total of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:25:06 INFO  ApplicationFun:193 - Sum of product prices = Total : 74.36
+2019-04-02 18:25:06 INFO  ApplicationFun:215 - Sum of product prices + Shipping = Total : 76.36
+2019-04-02 18:25:06 INFO  ApplicationFun:237 - Sum of product prices + Shipping + Tax = Total : 76.36
+2019-04-02 18:28:38 INFO  ApplicationFun:109 - Create Account : UserAccount657@gmail.com
+2019-04-02 18:28:58 INFO  ApplicationFun:109 - Create Account : UserAccount722@gmail.com
+2019-04-02 18:29:07 INFO  ApplicationFun:135 - Added product to cart : Product1
+2019-04-02 18:29:15 INFO  ApplicationFun:135 - Added product to cart : Product2
+2019-04-02 18:29:26 INFO  ApplicationFun:160 - Price of product printed summer dress is 28.98
+2019-04-02 18:29:26 INFO  ApplicationFun:163 - Price of product printed summer dress for 2 quantity is 57.96
+
+========================================================================================================================================================================================================================================================================================================================================
+2019-04-02 18:32:20 INFO  ApplicationFun:109 - Create Account : UserAccount421@gmail.com
+2019-04-02 18:32:43 INFO  ApplicationFun:109 - Create Account : UserAccount599@gmail.com
+2019-04-02 18:32:51 INFO  ApplicationFun:135 - Added product to cart : Product1
+2019-04-02 18:32:58 INFO  ApplicationFun:135 - Added product to cart : Product2
+2019-04-02 18:33:04 INFO  ApplicationFun:160 - Price of product printed summer dress is 28.98
+2019-04-02 18:33:04 INFO  ApplicationFun:163 - Price of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:33:09 INFO  ApplicationFun:177 - Total of product printed summer dress for 2 quantity is 57.96
+2019-04-02 18:33:09 INFO  ApplicationFun:193 - Sum of product prices = Total : 74.36
+2019-04-02 18:33:09 INFO  ApplicationFun:215 - Sum of product prices + Shipping = Total : 76.36
+2019-04-02 18:33:09 INFO  ApplicationFun:237 - Sum of product prices + Shipping + Tax = Total : 76.36

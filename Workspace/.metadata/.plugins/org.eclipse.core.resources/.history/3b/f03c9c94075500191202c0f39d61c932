@@ -1,0 +1,9 @@
+package TestCases;
+
+import org.testng.annotations.Test;
+
+public class TestWebApp {
+  @Test
+  public void f() {
+  }
+}

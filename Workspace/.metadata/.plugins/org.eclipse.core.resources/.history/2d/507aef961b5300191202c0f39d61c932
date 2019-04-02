@@ -1,0 +1,48 @@
+package PlatformLayer;
+
+import java.util.Hashtable;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+import Utilities.Constants;
+
+public class artifactsLoader 
+{
+	public static Hashtable testDataLoader(String testDataFilename, String testCaseId) throws FilloException
+	{
+		Fillo fillo  = new Fillo();
+		Hashtable<String,String> testData = new Hashtable<String,String>();
+		Connection connection = null;
+		Recordset recordset = null;
+		String strQuery = "Select Desc,Value where TDID = " + testCaseId;
+		String varName , varValue;
+		
+		
+		connection = fillo.getConnection(testDataFilename);
+		recordset = connection.executeQuery(strQuery);
+		
+		String temp = "";
+		
+		while(recordset.next())
+		{
+			if(!(recordset.getField("Desc").equals("")))
+			{
+				varName = recordset.getField("Desc");
+				varValue = recordset.getField("Value");
+				
+				testData.put(varName, varValue);
+			}
+		}
+		recordset.close();
+		connection.close();
+		return testData;
+	}
+	
+}
+		
+
+	
+
+

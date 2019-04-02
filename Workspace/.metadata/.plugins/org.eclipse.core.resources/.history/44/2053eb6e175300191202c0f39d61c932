@@ -1,0 +1,23 @@
+package PlatformLayer;
+
+import java.util.Hashtable;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+
+public class artifactsLoader 
+{
+	
+	Fillo fillo  = new Fillo();
+	Hashtable<String,String> hashTable = new Hashtable<String,String>();
+	Connection connection = null;
+	Recordset recordset = null;
+	String strQuery = null;
+	String fileName = "C:\\Selenium\\Workspace\\Auto_Project\\src\\testData\\testData.xlsx";
+	
+}
+		
+
+	
+
+

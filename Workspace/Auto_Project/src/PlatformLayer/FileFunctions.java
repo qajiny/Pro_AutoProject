@@ -1,0 +1,23 @@
+package PlatformLayer;
+
+import java.io.File;
+import java.io.IOException;
+
+public class FileFunctions {
+
+	public static void CreateNewFile(String fileName) throws IOException {
+		
+		// Delete old file
+		File file = new File(fileName);
+		if(file.exists())
+		{
+			file.delete();
+			System.out.println(fileName + " is deleted");
+		}
+	         
+        //create a new file
+        file = new File(fileName);
+        file.createNewFile();        
+        System.out.println(fileName + " is created");
+    }
+}

@@ -1,0 +1,15 @@
+2019-04-01 23:41:15 DEBUG Log4jTest:29 - This is debug
+2019-04-01 23:41:15 ERROR Log4jTest:33 - This is error : 
+2019-04-01 23:41:15 ERROR Log4jTest:36 - This is error
+2019-04-01 23:41:15 DEBUG Log4jTest:37 - Hello this is a debug message
+2019-04-01 23:41:15 INFO  Log4jTest:38 - Hello this is an info message
+2019-04-01 23:42:14 DEBUG Log4jTest:29 - This is debug
+2019-04-01 23:42:14 ERROR Log4jTest:33 - This is error : 
+2019-04-01 23:42:14 ERROR Log4jTest:36 - This is error
+2019-04-01 23:42:14 DEBUG Log4jTest:37 - Hello this is a debug message
+2019-04-01 23:42:14 INFO  Log4jTest:38 - Hello this is an info message
+2019-04-01 23:43:26 DEBUG Log4jTest:29 - This is debug
+2019-04-01 23:43:26 ERROR Log4jTest:33 - This is error : 
+2019-04-01 23:43:26 ERROR Log4jTest:36 - This is error
+2019-04-01 23:43:26 DEBUG Log4jTest:37 - Hello this is a debug message
+2019-04-01 23:43:26 INFO  Log4jTest:38 - Hello this is an info message

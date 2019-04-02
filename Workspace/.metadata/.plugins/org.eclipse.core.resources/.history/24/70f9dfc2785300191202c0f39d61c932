@@ -1,0 +1,26 @@
+Obj_Lnk_SignIn = .//a[@class='login']
+Obj_Txt_Email = .//input[@id='email_create']
+Obj_Btn_CreateAccount = .//button[@id='SubmitCreate']
+Obj_Rdo_Mrs = .//input[@id='id_gender2']
+Obj_Txt_FirstName  = .//input[@id='customer_firstname']
+Obj_Txt_LastName = .//input[@id='customer_lastname']
+Obj_Txt_Password = .//input[@id='passwd']
+Obj_Sel_Day = .//select[@id='days']
+Obj_Sel_Month = .//select[@id='months']
+Obj_Sel_Year = .//select[@id='years']
+
+Obj_Txt_FirstNameAdrdess  = .//input[@id='firstname']
+Obj_Txt_LastNameAdrdess = .//input[@id='lastname']
+Obj_Txt_CompanyAddress = .//input[@id='company']
+Obj_Txt_Address = .//input[@id='address1']
+
+Obj_Txt_CityAddress  = .//input[@id='city']
+Obj_Sel_StateAddress = .//select[@id='id_state']
+Obj_Txt_ZipAddress = .//input[@id='postcode']
+Obj_Sel_CountryAddress = .//select[@id='id_country']
+
+Obj_Txt_MobilePhone  = .//input[@id='phone_mobile']
+Obj_Txt_AlternateAddress = .//input[@id='alias']
+
+Obj_Btn_Register = .//button[@id='submitAccount']
+

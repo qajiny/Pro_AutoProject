@@ -1,0 +1,28 @@
+package PlatformLayer;
+
+
+import java.io.IOException;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.RollingFileAppender;
+
+public class Log4jExample{
+
+   /* Get actual class name to be printed on */
+   static Logger log = Logger.getLogger(Log4jExample.class.getName());
+	String filePath = "C:\\Selenium\\Workspace\\Auto_Project\\Logs\\logfile.txt";
+	PatternLayout layout = new PatternLayout("%2p %d{yyyy-MM-dd HH:mm:ss} [%c] :%L - %m%n");
+   RollingFileAppender appender = new RollingFileAppender(layout, filePath);
+   
+	appender.setMaxFileSize("100MB");
+	appender.activateOptions();
+	Log.getRootLogger().setLevel(Level.INFO);
+	Logger.getRootLogger().addAppender(appender);
+   
+   public static void main(String[] args)throws IOException,SQLException{
+      log.debug("Hello this is a debug message");
+      log.info("Hello this is an info message");
+   }
+}

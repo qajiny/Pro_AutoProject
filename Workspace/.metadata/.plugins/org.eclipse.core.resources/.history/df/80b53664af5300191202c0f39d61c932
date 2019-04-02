@@ -1,0 +1,82 @@
+package AutoPracticePackage;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+
+public class BaseClass
+{
+	public static Properties objRepo;
+	public static Map<String, String> testData;
+	public static WebDriver driver ; 
+	
+	// Load OR
+	public void loadOR() throws IOException {
+		objRepo = new Properties();
+		FileInputStream fis = new FileInputStream(
+		"C:\\Selenium\\Workspace\\Auto_Project\\ObjectRepository.properties");
+		objRepo.load(fis);
+		System.out.println(objRepo.getProperty("Obj_Lnk_SignIn"));
+	}	
+	
+	// Loads Test Data
+	public static Hashtable testDataLoader(String testDataFilename, String testCaseId) throws FilloException
+	{		
+		Fillo fillo  = new Fillo();
+		Hashtable<String,String> testData = new Hashtable<String,String>();
+		Connection connection = null;
+		Recordset recordset = null;
+		String strQuery = "Select Desc,Value from TestData where TDID = '" + testCaseId + "'";
+		String varName , varValue;
+		
+		
+		connection = fillo.getConnection(testDataFilename);
+		recordset = connection.executeQuery(strQuery);
+		
+		String temp = "";
+		
+		while(recordset.next())
+		{
+			if(!(recordset.getField("Desc").equals("")))
+			{
+				varName = recordset.getField("Desc");
+				varValue = recordset.getField("Value");
+				
+				testData.put(varName, varValue);
+			}
+		}
+		recordset.close();
+		connection.close();
+		
+		int i = testData.size();
+		System.out.println("Testdata loaded are " + i);
+		return testData;
+	}
+	
+	// Opens Browser
+	public static void LaunchApp() throws IOException {
+		System.out.println("IN @LaunchApp");
+		String baseUrl = "http://automationpractice.com";
+	    String driverPath = "C:\\SeleniumJars\\geckodriver.exe";
+		  
+		System.setProperty("webdriver.firefox.marionette", driverPath);
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      
+        driver.get(baseUrl);
+        driver.manage().window().maximize();
+		System.out.println("Launched the App");
+		System.out.println("OUT @LaunchApp");
+	}	
+}

@@ -1,0 +1,29 @@
+package PlatformLayer;
+
+import java.util.Hashtable;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+
+public class artifactsLoader 
+{
+	public static void testDataLoader(String TDID) throws FilloException
+	{
+		Fillo fillo  = new Fillo();
+		Hashtable<String,String> hashTable = new Hashtable<String,String>();
+		Connection connection = null;
+		Recordset recordset = null;
+		String strQuery = "Select Desc,Value where TDID = " + TDID;
+		
+		
+		connection = fillo.getConnection(fileName);
+	}
+	
+}
+		
+
+	
+
+

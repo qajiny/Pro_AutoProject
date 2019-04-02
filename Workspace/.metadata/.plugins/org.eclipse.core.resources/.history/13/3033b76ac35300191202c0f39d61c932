@@ -1,0 +1,81 @@
+package PlatformLayer;
+
+import AutoPracticePackage.BaseClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import org.testng.Assert;
+import org.testng.asserts.*;
+
+public class webKeywords {
+	
+	// Clicks on WebElement
+	public static void webElement_Click(String webElement)
+	{
+		BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+		//BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+	}
+	
+	// SendKeys to WebElement
+	public static void webElement_Type(String webElement,String sText)
+	{
+		WebElement we = BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement)));
+		we.clear();
+		we.sendKeys(BaseClass.testDataMap.get(sText));
+	}
+		
+	// Select from Select element using index
+	public static void webElement_Select(String webElement,Integer index)
+	{
+		Select select = new Select(BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))));	 
+	    select.selectByIndex(index);
+	}
+	
+	// Select from Select element using text
+	public static void webElement_SelectVisibleText(String webElement,String sText)
+	{
+		Select select = new Select(BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))));	 
+	    select.selectByVisibleText(BaseClass.testDataMap.get(sText));
+	}
+	
+	// Verify WebElement Text
+	public static void webElement_VerifyText(String webElement,String expectedText)
+	{
+		System.out.println("expectedText" + expectedText);
+		WebElement we  = BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty("webElement")));
+		System.out.println("1111");
+		String ActualText = we.getText();
+		System.out.println("22222");
+		ActualText =ActualText.trim();
+		System.out.println("33333");
+		expectedText = expectedText.trim();
+		
+		System.out.println("ActualText" + ActualText);
+		assertEquals(expectedText, ActualText);
+		Assert.assertTrue(ActualText.equalsIgnoreCase("expectedText"));
+	}
+		
+	
+	
+	
+
+}

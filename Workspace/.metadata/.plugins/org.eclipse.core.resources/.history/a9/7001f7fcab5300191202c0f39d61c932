@@ -1,0 +1,18 @@
+package PlatformLayer;
+
+import AutoPracticePackage.BaseClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class webKeywords {
+	public static void webElementClick(String webElement)
+	{
+		BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+	}
+	
+	
+
+}

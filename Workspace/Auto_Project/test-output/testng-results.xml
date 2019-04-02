@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="118566" started-at="2019-04-02T13:01:28Z" finished-at="2019-04-02T13:03:27Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="118566" started-at="2019-04-02T13:01:28Z" finished-at="2019-04-02T13:03:27Z">
+      <class name="TestCases.TestWebApp">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:TestCases.TestWebApp@1081592]" name="beforeSuite" is-config="true" duration-ms="125" started-at="2019-04-02T18:31:28Z" finished-at="2019-04-02T18:31:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.TestWebApp@1081592]" name="beforeTest" is-config="true" duration-ms="27169" started-at="2019-04-02T18:31:28Z" finished-at="2019-04-02T18:31:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="TestScenario()[pri:0, instance:TestCases.TestWebApp@1081592]" name="TestScenario" duration-ms="91375" started-at="2019-04-02T18:31:56Z" finished-at="2019-04-02T18:33:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestScenario -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.TestWebApp@1081592]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-04-02T18:33:27Z" finished-at="2019-04-02T18:33:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- TestCases.TestWebApp -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,56 @@
+package PlatformLayer;
+
+import AutoPracticePackage.BaseClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class webKeywords {
+	
+	// Clicks on WebElement
+	public static void webElement_Click(String webElement)
+	{
+		BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+		//BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).click();
+	}
+	
+	// SendKeys to WebElement
+	public static void webElement_Type(String webElement,String sText)
+	{
+		BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))).sendKeys(BaseClass.testDataMap.get(sText));
+	}
+		
+	// Select from Select element using index
+	public static void webElement_Select(String webElement,Integer index)
+	{
+		Select select = new Select(BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))));	 
+	    select.selectByIndex(index);
+	}
+	
+	// Select from Select element using text
+	public static void webElement_SelectVisibleText(String webElement,String sText)
+	{
+		Select select = new Select(BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty(webElement))));	 
+	    select.selectByVisibleText(sText);
+	}
+		
+	
+	
+	
+
+}

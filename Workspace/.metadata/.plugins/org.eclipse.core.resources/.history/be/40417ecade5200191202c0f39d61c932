@@ -1,0 +1,3 @@
+Obj_Lnk_SignIn = .//a[@class='login']
+Obj_Txt_Email = .//input[@id='email_create']
+SignUpButton = philadelphia-field-submit

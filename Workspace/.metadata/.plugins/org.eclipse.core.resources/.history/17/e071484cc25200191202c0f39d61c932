@@ -1,0 +1,65 @@
+package AutoPracticePackage;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+
+public class NewTestFile {
+	
+  public String baseUrl = "http://automationpractice.com";
+  String driverPath = "C:\\SeleniumJars\\geckodriver.exe";
+  public WebDriver driver ; 
+  
+  @Test()
+  public void f() {
+	  System.out.println("IN TEST"); 
+	  
+     /* String expectedTitle = "Welcome: Mercury Tours";
+      String actualTitle = driver.getTitle();
+      Assert.assertEquals(actualTitle, expectedTitle);
+      driver.close();*/
+  }
+  
+  
+ 
+  
+  
+  
+
+  @DataProvider
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { 1, "a" },
+      new Object[] { 2, "b" },
+    };
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  System.out.println("launching firefox browser"); 
+      System.setProperty("webdriver.firefox.marionette", driverPath);
+      driver = new FirefoxDriver();
+      driver.get(baseUrl);
+  }
+
+  @AfterTest
+  public void afterTest() {
+  }
+
+  @BeforeSuite
+  public void beforeSuite() {
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}

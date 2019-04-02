@@ -1,0 +1,151 @@
+package AutoPracticePackage;
+
+//import AutoPracticePackage.BaseClass;
+import PlatformLayer.webKeywords;
+
+import org.testng.annotations.Test;
+
+import com.codoid.products.exception.FilloException;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+//import PlatformLayer.selActionKeywords;
+
+import Utilities.Constants;
+import Utilities.Utils;
+
+import AutoPracticePackage.BaseClass;
+
+
+public class NewTestFile 
+{  	
+	BaseClass bs = new BaseClass();
+  
+  @BeforeSuite
+  public void beforeSuite() throws IOException {	  
+	  bs.loadOR();
+  }
+  
+ 
+  @BeforeTest
+  public void beforeTest() 
+  {	
+	// Load test data
+		  try {
+			  bs.testDataMap = BaseClass.testDataLoader(Constants.testDataFileName,"createAccount");
+			
+		} catch (FilloException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		  
+		  // Launches App
+		  System.out.println("Launches Application"); 
+		  try {
+			BaseClass.LaunchApp();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  
+		/*  // Launch Application
+	  System.out.println("IN @LaunchApp");
+		String baseUrl = "http://automationpractice.com";
+	    String driverPath = "C:\\SeleniumJars\\geckodriver.exe";
+		  
+		System.setProperty("webdriver.firefox.marionette", driverPath);
+      BaseClass.driver = new FirefoxDriver();
+      BaseClass.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    
+      BaseClass.driver.get(baseUrl);
+      BaseClass.driver.manage().window().maximize();
+		System.out.println("Launched the App");
+		System.out.println("OUT @LaunchApp");
+		*/
+      
+  }
+    
+  @SuppressWarnings("unchecked")
+@Test
+  public void createAccount()
+  {	
+	  Integer RandNo = Utils.CreateRandomNo();
+	  String emailId = "UserAccount" + RandNo + "@" + "gmail.com";
+	  
+	  // Screen 1
+	  webKeywords.webElement_Click("Obj_Lnk_SignIn");
+	  BaseClass.driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_Email"))).sendKeys(emailId);
+	  //webKeywords.webElement_Type("Obj_Txt_Email","emailId");
+	  webKeywords.webElement_Click("Obj_Btn_CreateAccount");
+	  
+	  // Screen 2
+	  webKeywords.webElement_Click("Obj_Rdo_Mrs");
+	  webKeywords.webElement_Type("Obj_Txt_FirstName","firstName");
+	  webKeywords.webElement_Type("Obj_Txt_LastName","lastName");
+	  webKeywords.webElement_Type("Obj_Txt_Password","passWord");
+	  	  
+	  // Select DOB
+	  webKeywords.webElement_Select("Obj_Sel_Day",19);
+	  webKeywords.webElement_Select("Obj_Sel_Month",12);
+	  webKeywords.webElement_Select("Obj_Sel_Year",12);
+	  	  
+	  // Enter data in "Your Address" fields
+	  //webKeywords.webElement_Type("Obj_Txt_LastNameAdrdess","lastName");
+	  webKeywords.webElement_Type("Obj_Txt_CompanyAddress","company");
+	  webKeywords.webElement_Type("Obj_Txt_Address","address");
+	  webKeywords.webElement_Type("Obj_Txt_CityAddress","city");
+	  
+	  webKeywords.webElement_SelectVisibleText("Obj_Sel_StateAddress","state");	  
+	  webKeywords.webElement_Type("Obj_Txt_ZipAddress","postalCode");
+	  webKeywords.webElement_SelectVisibleText("Obj_Sel_CountryAddress","country");
+	  
+	  webKeywords.webElement_Type("Obj_Txt_MobilePhone","mobilePhone");
+	  webKeywords.webElement_Type("Obj_Txt_AlternateAddress","aliasAddress");
+	  webKeywords.webElement_Click("Obj_Btn_Register");
+	  	 
+	  // Screen 3
+	 /* System.out.println("11111"); 
+	  webKeywords.webElement_VerifyText("Obj_lnk_CustName",BaseClass.testDataMap.get("fullName"));
+	  System.out.println("22222"); 	  */
+	  System.out.println("OUT createAccount"); 
+  }
+  
+  
+ 
+  
+  
+  
+
+  
+
+  @AfterTest
+  public void afterTest() {
+	//  driver.close();
+  }
+
+  
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}

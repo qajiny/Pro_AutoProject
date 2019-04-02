@@ -1,0 +1,19 @@
+package automationpractice;
+
+import com.platformLayer.selActionKeywords;
+import com.uilities.Constants;
+
+public class AutomationPracticeClass {
+	
+	public static void createAccount () {		
+		try 
+		{
+			
+		} catch (Exception e) 
+		{
+			Constants.kyExecutionCounter = false;
+			e.printStackTrace();
+		}
+	}
+
+}

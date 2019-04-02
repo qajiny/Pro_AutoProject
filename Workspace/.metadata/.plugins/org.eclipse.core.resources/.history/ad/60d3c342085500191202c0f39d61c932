@@ -1,0 +1,51 @@
+package TestCases;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import ApplicationLayer.ApplicationFun;
+import AutoPracticePackage.BaseClass;
+import PlatformLayer.webKeywords;
+
+public class TestWebApp 
+{
+	
+	  BaseClass bs = new BaseClass();
+	  String emailId="Reshmi@gmail.com";
+	
+	  @BeforeSuite
+	  public void beforeSuite()  
+	  {		  
+		  // Configure Log4j
+		  bs.ConfigureLog4j();		  
+		  
+		  // Load OR		  
+		  bs.loadOR();
+		//  Log4jLog.info("Loaded the Object Repository successfully");
+	  }
+  
+  
+  @Test
+  public void f() {
+	  createAccount();
+		// Verify zip error
+		  String actualErrorMsg = webKeywords.webElement_getText("Obj_Lbl_ZipError");
+		  Assert.assertTrue(actualErrorMsg.contains(ZipErrorMsg));
+		  
+		  createAccount();
+		 /*
+		  addProductToCart("Product1");
+		  addProductToCart("Product2");
+		  completeThePurchase();
+		  */
+  }
+  
+  @AfterTest
+  public void afterTest() {
+	//  driver.close();
+  }
+}

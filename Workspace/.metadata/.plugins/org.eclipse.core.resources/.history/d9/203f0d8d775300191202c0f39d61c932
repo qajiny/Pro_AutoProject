@@ -1,0 +1,120 @@
+package AutoPracticePackage;
+
+//import AutoPracticePackage.BaseClass;
+
+
+import org.testng.annotations.Test;
+
+import com.codoid.products.exception.FilloException;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Method;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+//import PlatformLayer.selActionKeywords;
+
+import Utilities.Constants;
+import AutoPracticePackage.BaseClass;
+
+
+public class NewTestFile {
+	
+  public static Map<String,String>testDataMap;
+	
+  public String baseUrl = "http://automationpractice.com";
+  String driverPath = "C:\\SeleniumJars\\geckodriver.exe";
+  public WebDriver driver ; 
+  
+  @BeforeTest
+  public void beforeTest() 
+  {			  
+	  System.out.println("launching firefox browser"); 
+      System.setProperty("webdriver.firefox.marionette", driverPath);
+      driver = new FirefoxDriver();
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      
+      driver.get(baseUrl);
+      driver.manage().window().maximize();
+  }
+    
+  @SuppressWarnings("unchecked")
+@Test
+  public void createAccount()
+  {	
+	  // Load test data
+	  try {
+		  testDataMap = BaseClass.testDataLoader(Constants.testDataFileName,"createAccount");
+		
+	} catch (FilloException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
+	  
+	  System.out.println("IN createAccount"); 
+	  
+	  String Email = "veena.katiyar@gmail.com";
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Lnk_SignIn"))).click();
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_Email"))).sendKeys(testDataMap.get("emailId"));
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Btn_CreateAccount"))).click();
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Rdo_Mrs"))).click();
+	  
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("Obj_Txt_FirstName"))).sendKeys(testDataMap.get("firstName"));
+	  
+	  
+	  
+	  
+	  
+	  System.out.println("OUT createAccount"); 
+  }
+  
+  
+ 
+  
+  
+  
+
+  @DataProvider(name="createAccount")
+  public Object[] accountDp() 
+  {
+   /* return new Object[] 
+	{*/
+     return new Object[] { "abc@gmail.com" } ;   
+    //};
+  }
+  
+
+  
+
+  @AfterTest
+  public void afterTest() {
+	//  driver.close();
+  }
+
+  @BeforeSuite
+  public void beforeSuite() throws IOException {
+	  BaseClass bs = new BaseClass();
+	  bs.loadOR();
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}

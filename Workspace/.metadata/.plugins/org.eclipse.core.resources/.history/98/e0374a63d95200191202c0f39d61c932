@@ -1,0 +1,86 @@
+package AutoPracticePackage;
+
+import AutoPracticePackage.BaseClass;
+
+
+import org.testng.annotations.Test;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+
+public class NewTestFile {
+	
+  public String baseUrl = "http://automationpractice.com";
+  String driverPath = "C:\\SeleniumJars\\geckodriver.exe";
+  public WebDriver driver ; 
+  
+  @BeforeTest
+  public void beforeTest() {
+	  System.out.println("launching firefox browser"); 
+      System.setProperty("webdriver.firefox.marionette", driverPath);
+      driver = new FirefoxDriver();
+      driver.get(baseUrl);
+      driver.manage().window().maximize();
+  }
+  
+  @Test(priority =0)
+  public void createAccount() {
+	  System.out.println("IN createAccount"); 
+	  driver.findElement(By.xpath(BaseClass.objRepo.getProperty("SignUpButton"))).click();
+	  
+	  
+	  
+	  System.out.println("OUT createAccount"); 
+  }
+  @Test()
+  public void f() {
+	  System.out.println("IN TEST"); 
+	  
+     /* String expectedTitle = "Welcome: Mercury Tours";
+      String actualTitle = driver.getTitle();
+      Assert.assertEquals(actualTitle, expectedTitle);
+      driver.close();*/
+  }
+  
+  
+ 
+  
+  
+  
+
+  @DataProvider
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { 1, "a" },
+      new Object[] { 2, "b" },
+    };
+  }
+  
+
+  @AfterTest
+  public void afterTest() {
+	//  driver.close();
+  }
+
+  @BeforeSuite
+  public void beforeSuite() throws IOException {
+	  BaseClass bs = new BaseClass();
+	  bs.loadOR();
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}
